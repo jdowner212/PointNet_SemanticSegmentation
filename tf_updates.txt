@@ -1,0 +1,23 @@
+
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/provider.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/provider.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/train.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/train.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/evaluate.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/evaluate.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/sem_seg/indoor3d_util.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/sem_seg/indoor3d_util.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/sem_seg/gen_indoor3d_h5.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/sem_seg/gen_indoor3d_h5.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/sem_seg/model.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/sem_seg/model.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/sem_seg/train.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/sem_seg/train.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/sem_seg/batch_inference.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/sem_seg/batch_inference.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/sem_seg/collect_indoor3d_data.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/sem_seg/collect_indoor3d_data.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/sem_seg/eval_iou_accuracy.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/sem_seg/eval_iou_accuracy.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/utils/plyfile.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/utils/plyfile.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/utils/eulerangles.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/utils/eulerangles.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/utils/pc_util.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/utils/pc_util.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/utils/data_prep_util.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/utils/data_prep_util.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/utils/tf_util.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/utils/tf_util.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/models/pointnet_cls_basic.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/models/pointnet_cls_basic.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/models/pointnet_seg.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/models/pointnet_seg.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/models/pointnet_cls.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/models/pointnet_cls.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/models/transform_nets.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/models/transform_nets.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/part_seg/test.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/part_seg/test.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/part_seg/train.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/part_seg/train.py
+!tf_upgrade_v2   --infile /content/drive/MyDrive/PointNet2_again/original/part_seg/pointnet_part_seg.py --outfile /content/drive/MyDrive/PointNet2_again/tf2/part_seg/pointnet_part_seg.py

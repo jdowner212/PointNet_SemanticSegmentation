@@ -1,0 +1,110 @@
+
+####### TRANSFER LEARNING #######
+#/content/drive/MyDrive/PointNet_reimplementation/data/IIT_Data/office_furn_1/office_furn_1/office_furn_1.txt
+# copy collect_indoor3d_data, indoor3d_util, gen_indoor3d_h5, batch_inference
+
+### ONLY IF THESE FILES DON'T YET EXIST:
+!cp -av /content/drive/MyDrive/PointNet_reimplementation/sem_seg/collect_indoor3d_data.py /content/drive/MyDrive/PointNet_reimplementation/sem_seg/collect_indoor3d_data_TEST.py
+!cp -av /content/drive/MyDrive/PointNet_reimplementation/sem_seg/indoor3d_util.py /content/drive/MyDrive/PointNet_reimplementation/sem_seg/indoor3d_util_TEST.py
+!cp -av /content/drive/MyDrive/PointNet_reimplementation/sem_seg/gen_indoor3d_h5.py /content/drive/MyDrive/PointNet_reimplementation/sem_seg/gen_indoor3d_h5_TEST.py
+!cp -av /content/drive/MyDrive/PointNet_reimplementation/sem_seg/batch_inference.py /content/drive/MyDrive/PointNet_reimplementation/sem_seg/batch_inference_TEST.py
+
+### FOR WHICHEVER MODEL YOU WANT TO USE + ROOM YOU WANT TO TEST:
+os.mkdir('/content/drive/MyDrive/PointNet_reimplementation/sem_seg/log_office_furn_1_office_furn_1')
+os.mkdir('/content/drive/MyDrive/PointNet_reimplementation/sem_seg/log_office_furn_1_office_furn_1/dump')
+!cp -av /content/drive/MyDrive/PointNet_reimplementation/sem_seg/log6/model.ckpt.data-00000-of-00001 /content/drive/MyDrive/PointNet_reimplementation/sem_seg/log_office_furn_1_office_furn_1/model.ckpt.data-00000-of-00001
+!cp -av /content/drive/MyDrive/PointNet_reimplementation/sem_seg/log6/model.ckpt.index /content/drive/MyDrive/PointNet_reimplementation/sem_seg/log_office_furn_1_office_furn_1/model.ckpt.index
+!cp -av /content/drive/MyDrive/PointNet_reimplementation/sem_seg/log6/model.ckpt.meta /content/drive/MyDrive/PointNet_reimplementation/sem_seg/log_office_furn_1_office_furn_1/model.ckpt.meta
+
+# 1. create directory /data/IIT_Data/[room]/[room]/Annotations
+
+###os.mkdir('/content/drive/MyDrive/PointNet_reimplementation/data/IIT_Data')
+os.mkdir('/content/drive/MyDrive/PointNet_reimplementation/data/IIT_Data/office_1')
+os.mkdir('/content/drive/MyDrive/PointNet_reimplementation/data/IIT_Data/office_1/office_1')
+os.mkdir('/content/drive/MyDrive/PointNet_reimplementation/data/IIT_Data/office_1/office_1/Annotations')
+os.mkdir('/content/drive/MyDrive/PointNet_reimplementation/data/IIT_Data/classroom_1')
+os.mkdir('/content/drive/MyDrive/PointNet_reimplementation/data/IIT_Data/classroom_1/classroom_1')
+os.mkdir('/content/drive/MyDrive/PointNet_reimplementation/data/IIT_Data/classroom_1/classroom_1/Annotations')
+
+# 2. make anno_paths.txt folder, including the string '[room]/[room]/Annotations'
+#    --- location: /content/drive/MyDrive/PointNet_reimplementation/sem_seg/meta
+
+with open('/content/drive/MyDrive/PointNet_reimplementation/sem_seg/meta/anno_paths_iit.txt','a') as anno_paths_txt:
+  anno_paths_txt.write('office_1/office_1/Annotations
+')
+  anno_paths_txt.write('classroom_1/classroom_1/Annotations
+')
+  anno_paths_txt.write('office_furn_1/office_furn_1/Annotations
+')
+anno_paths_txt.close()
+
+# 3. collect_indoor3d_data_TEST:
+#     --- line 6:  replace 'indoor_3d_util' with name of copied file
+#     --- line 8:  change 'anno_paths.txt' to 'anno_paths_iit.txt'
+#     --- line 11: provide output path, 'data/iit_indoor3d' -- code will generate
+# 6. indoor3d_util_TEST:
+#     --- line 13: replace 'Stanford3dDataset_v1.2_Aligned_Version' with 'IIT_Data'
+# 7. within /content/drive/MyDrive/PointNet_reimplementation/data/IIT_Data:
+#   --- within [room]/[room]: include full room [room_name].txt, xyz_rgb.txt format
+#   --- within [room]/[room]/Annotations: include same file, name it 'clutter_1.txt'
+
+!cp -av /content/drive/MyDrive/pointnet/tf2/sem_seg/Transfer\ Learning/Room27_straightened.txt /content/drive/MyDrive/PointNet2_again/tf2/data/IIT_Data/classroom_1/classroom_1/classroom_1.txt
+!cp -av /content/drive/MyDrive/pointnet/tf2/sem_seg/Transfer\ Learning/Room27_straightened.txt /content/drive/MyDrive/PointNet2_again/tf2/data/IIT_Data/classroom_1/classroom_1/Annotations/clutter_1.txt
+!cp -av /content/drive/MyDrive/pointnet/tf2/sem_seg/Transfer\ Learning/office.txt /content/drive/MyDrive/PointNet2_again/tf2/data/IIT_Data/office_1/office_1/office_1.txt
+!cp -av /content/drive/MyDrive/pointnet/tf2/sem_seg/Transfer\ Learning/office.txt /content/drive/MyDrive/PointNet2_again/tf2/data/IIT_Data/office_1/office_1/Annotations/clutter_1.txt
+
+# 8. run collect_indoor3d_data_TEST:
+
+os.chdir('/content/drive/MyDrive/PointNet_reimplementation/sem_seg')
+!python collect_indoor3d_data_TEST.py
+
+# 9. create 'all_data_label_iit' file and include '[room]_[room].npy'
+
+
+filename = '/content/drive/MyDrive/PointNet_reimplementation/sem_seg/meta/all_data_label_iit.txt'
+with open(filename,'a') as all_data_label_iit:
+  #all_data_label_iit.write('classroom_1_classroom_1.npy
+')
+  #all_data_label_iit.write('office_1_office_1.npy
+')
+  all_data_label_iit.write('office_furn_1_office_furn_1.npy
+')
+all_data_label_iit.close()
+
+
+#IN ADDITION, FOR WHICHEVER SPECIFIC ROOM(S) YOU WANT TO TEST:
+
+filename = '/content/drive/MyDrive/PointNet2_again/tf2/sem_seg/meta/office_furn_1_office_furn_1_data_label.txt'
+with open(filename,'w') as this_room_label_iit:
+  this_room_label_iit.write('data/iit_indoor3d/office_furn_1_office_furn_1.npy
+')
+this_room_label_iit.close()
+
+# 10. gen_indoor3d_h5_TEST:
+#     --- line 13:  replace with 'iit_indoor3d'
+#     --- line 22:  replace with 'all_data_label_iit'
+#     --- line 24:  replace with 'indoor3d_sem_seg_hdf5_data_IIT'
+# 11. batch_inference_TEST.py
+#     --- line 8:   replace with 'import indoor3d_util_TEST'
+#     --- line 102: replace with 'indoor3d_util_TEST'
+#     --- line 103: replace with 'indoor3d_util_TEST'
+# 12. run collect_indoor3d_data_TEST:
+
+os.chdir('/content/drive/MyDrive/PointNet2_again/tf2/sem_seg')
+!python gen_indoor3d_h5_TEST.py
+
+# 13. Write names of h5 files to 'all_files.txt'
+
+h5_filenames = [f for f in os.listdir('/content/drive/MyDrive/PointNet2_again/tf2/data/indoor3d_sem_seg_hdf5_data_IIT') if f[-3:]=='.h5']
+new_filepath = '/content/drive/MyDrive/PointNet2_again/tf2/data/indoor3d_sem_seg_hdf5_data_IIT/all_files.txt'
+with open(new_filepath, 'w') as all_files_txt:
+  for filename in h5_filenames:
+    all_files_txt.write(filename + '
+')
+all_files_txt.close()
+
+# 13. Try it out!
+
+os.chdir('/content/drive/MyDrive/PointNet2_again/tf2/sem_seg')
+#!cd /content/drive/MyDrive/PointNet2_again/tf2/sem_seg
+!python batch_inference_TEST.py --model_path log6/model.ckpt --dump_dir log_office_furn_1_office_furn_1/dump --output_filelist log_office_furn_1_office_furn_1/output_filelist.txt --room_data_filelist meta/office_furn_1_office_furn_1_data_label.txt --visu
