@@ -1,1 +1,0 @@
-data/iit_indoor3d/room_234_room_234.npy

@@ -1,4 +1,0 @@
-room_220_room_220.npy
-
-room_234_room_234.npy
-
