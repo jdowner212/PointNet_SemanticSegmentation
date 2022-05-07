@@ -11,4 +11,4 @@ and
 2. A modified version with Tensorflow 2.x compatibility.
 https://github.com/RobinBaumann/pointnet/
 
-View PointNet_SemanticSegmentation/sem_seg/training_instructions.txt for instructions.
+View PointNet_SemanticSegmentation/sem_seg/training_instructions.txt for instructions on modified features.
