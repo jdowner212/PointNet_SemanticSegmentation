@@ -3,12 +3,12 @@
 ###### (a) Raw Data
 ######     - Submit this Google form: https://docs.google.com/forms/d/e/1FAIpQLScDimvNMCGhy_rmBA2gHfDu3naktRm6A8BPwAWWDv-Uhm6Shw/viewform?c=0&w=1
 ######     - After downloading, place the unzipped "Stanford3dDataset_v1.2_Aligned_Version" folder within Pointnet_SemanticSegementation/data
-######     - *IMPORTANT*: there is an extrac character in 180389 of Stanford3dDataset_v1.2_Aligned_Version\Area_5\hallway_6\Annotations\ceiling_1.txt.
-######       Make sure to remove this character.
+######     - *IMPORTANT*: there may be an extra character in 180389 of Stanford3dDataset_v1.2_Aligned_Version\Area_5\hallway_6\Annotations\ceiling_1.txt.
+######       Make sure to remove this character if this applies.
 ###### (b) hdf5 Files
 ######     - Set working directory to Pointnet_SemanticSegementation/data and then run:
 ######          wget https://shapenet.cs.stanford.edu/media/indoor3d_sem_seg_hdf5_data.zip --no-check-certificate
 ######          unzip indoor3d_sem_seg_hdf5_data.zip
 ######          rm indoor3d_sem_seg_hdf5_data.zip
-###### (c) convert to .npy -- this will take around an hour!!!!
+###### (c) convert to .npy -- this takes about 45 minutes in Google Colab
 ######          python collect_indoor3d_data.py
