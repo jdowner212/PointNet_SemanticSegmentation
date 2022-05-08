@@ -1,4 +1,3 @@
-### (1)
 ### DOWNLOAD/PREP STANFORD DATA
 ###### (a) Raw Data
 ######     - Submit this Google form: https://docs.google.com/forms/d/e/1FAIpQLScDimvNMCGhy_rmBA2gHfDu3naktRm6A8BPwAWWDv-Uhm6Shw/viewform?c=0&w=1
@@ -11,4 +10,8 @@
 ######          unzip indoor3d_sem_seg_hdf5_data.zip
 ######          rm indoor3d_sem_seg_hdf5_data.zip
 ###### (c) convert to .npy -- this takes about 45 minutes in Google Colab
+######          python collect_indoor3d_data.py
+
+### TRAIN
+######     - Set working directory to Pointnet_SemanticSegementation/data and then run:
 ######          python collect_indoor3d_data.py
