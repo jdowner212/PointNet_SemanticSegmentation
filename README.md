@@ -13,4 +13,4 @@ https://github.com/RobinBaumann/pointnet/
 
 Before running, you'll need to download the S3DIS dataset, which requires submitting a Google form. (link: https://docs.google.com/forms/d/e/1FAIpQLScDimvNMCGhy_rmBA2gHfDu3naktRm6A8BPwAWWDv-Uhm6Shw/viewform?c=0&w=1). After downloading, place the unzipped "Stanford3dDataset_v1.2_Aligned_Version" folder within the "data" folder.
 
-View PointNet_SemanticSegmentation/sem_seg/instructions.txt for instructions on modified features.
+View sem_seg/instructions.txt to get started.
