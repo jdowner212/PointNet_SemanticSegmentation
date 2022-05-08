@@ -22,8 +22,7 @@ tf_upgrade_v2   --infile {path to original tf_util.py} --outfile  {path to new t
              room_filelist = [line.rstrip() for line in open(ROOT_DIR + '/data/indoor3d_sem_seg_hdf5_data/room_filelist.txt')]
 ######## Line 72 edit:
              data_batch, label_batch = provider.loadDataFile(ROOT_DIR + '/data/' + h5_filename)
-
-
+             
 ##### provider.py:
 ######### Comment out lines 9-17
 
@@ -32,7 +31,8 @@ tf_upgrade_v2   --infile {path to original tf_util.py} --outfile  {path to new t
 
 ##### tf_util.py (after running converesion script)
 ######## comment out '.value' in line 86, 147, 209, 228, 229, 230, 287, 331, 469
-# true_fn=lambda: tf.nn.dropout(x=inputs, noise_shape=noise_shape, rate=1 - (keep_prob)),
-#####
+######## Line 573 edit:
+             true_fn=lambda: tf.nn.dropout(x=inputs, noise_shape=noise_shape, rate=1 - (keep_prob)),
+
 ##### indoor3d_util.py
-##### Line 125: put 'list' around 'range(N)'
+######## Line 125: put 'list' around 'range(N)'
