@@ -1,10 +1,4 @@
-
 ### (1)
-### CLONE GIT REPO -- https://github.com/RobinBaumann/pointnet
-#os.chdir('/content/drive/MyDrive')
-#!git clone https://github.com/RobinBaumann/pointnet.git PointNet2_again
-
-### (2)
 ### DOWNLOAD STANFORD HDF5 FILES -- https://shapenet.cs.stanford.edu
 # os.chdir('/content/drive/MyDrive/PointNet2_again/tf2')
 # !mkdir data (if doesn't already exist)
