@@ -1,4 +1,4 @@
-### Edits to the following repo: https://github.com/RobinBaumann/pointnet.git PointNet2_again
+### Edits to the following repo: https://github.com/RobinBaumann/pointnet.git
 
 
 ##### tf_2 conversions (Google Colab command): 
@@ -7,34 +7,31 @@ tf_upgrade_v2   --infile {path to original tf_util.py} --outfile  {path to new t
 
 ##### train.py:
 ######## set up first part to look like this:
+             BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+             ROOT_DIR = os.path.dirname(BASE_DIR)
+             sys.path.append(BASE_DIR)
+             sys.path.append(ROOT_DIR)
+             sys.path.append(os.path.join(ROOT_DIR, 'utils')) #sys.path.append(os.path.join(ROOT_DIR, 'utils'))
+             sys.path.append(os.path.join(os.path.dirname(ROOT_DIR), 'original'))
+             import provider   ###  Make sure this is referring to the file in pointnet/original and not pointnet/tf2
+             import tf_util
+             from model import *
+######## Line 65 edit:
+             ALL_FILES = provider.getDataFiles(ROOT_DIR + '/data/indoor3d_sem_seg_hdf5_data/all_files.txt')
+######## Line 66 edit:
+             room_filelist = [line.rstrip() for line in open(ROOT_DIR + '/data/indoor3d_sem_seg_hdf5_data/room_filelist.txt')]
+######## Line 72 edit:
+             data_batch, label_batch = provider.loadDataFile(ROOT_DIR + '/data/' + h5_filename)
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-ROOT_DIR = os.path.dirname(BASE_DIR)
-sys.path.append(BASE_DIR)
-sys.path.append(ROOT_DIR)
-sys.path.append(os.path.join(ROOT_DIR, 'utils')) #sys.path.append(os.path.join(ROOT_DIR, 'utils'))
-sys.path.append(os.path.join(os.path.dirname(ROOT_DIR), 'original'))
 
-
-import provider_og as provider
-import tf_util
-from model import *
-#
-# Line 65: ALL_FILES = provider.getDataFiles(ROOT_DIR + '/data/indoor3d_sem_seg_hdf5_data/all_files.txt')
-# Line 66: room_filelist = [line.rstrip() for line in open(ROOT_DIR + '/data/indoor3d_sem_seg_hdf5_data/room_filelist.txt')]
-# Line 72: data_batch, label_batch = provider.loadDataFile(ROOT_DIR + '/data/' + h5_filename)
-#####
 ##### provider.py:
-#####
-# Comment out lines 9-17
-#####
+######### Comment out lines 9-17
+
 ##### model.py
-#####
-# comment out '.value' in lines 21 and 22
-#####
-##### tf_util.py
-#####
-# comment out '.value' in line 86, 147, 209, 228, 229, 230, 287, 331, 469
+######### comment out '.value' in lines 21 and 22
+
+##### tf_util.py (after running converesion script)
+######## comment out '.value' in line 86, 147, 209, 228, 229, 230, 287, 331, 469
 # true_fn=lambda: tf.nn.dropout(x=inputs, noise_shape=noise_shape, rate=1 - (keep_prob)),
 #####
 ##### indoor3d_util.py
