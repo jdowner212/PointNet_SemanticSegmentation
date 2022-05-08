@@ -1,38 +1,24 @@
-### (1)
-### DOWNLOAD STANFORD HDF5 FILES -- https://shapenet.cs.stanford.edu
-# os.chdir('/content/drive/MyDrive/PointNet2_again/tf2')
-# !mkdir data (if doesn't already exist)
-# os.chdir('/content/drive/MyDrive/PointNet2_again/tf2/data')
-# !wget https://shapenet.cs.stanford.edu/media/indoor3d_sem_seg_hdf5_data.zip --no-check-certificate
-# !unzip indoor3d_sem_seg_hdf5_data.zip
-# !rm indoor3d_sem_seg_hdf5_data.zip
+### Edits to the following repo: https://github.com/RobinBaumann/pointnet.git PointNet2_again
 
-### (3)
-### DUPLICATE RAW STANFORD DATA FROM OTHER DIRECTORY
-# !cp -av /content/drive/MyDrive/pointnet/tf2/data/Stanford3dDataset_v1.2_Aligned_Version /content/drive/MyDrive/PointNet2_again/tf2/data
 
-### (4)
-### GENERATE NPY FILES (for testing):
-#!python collect_indoor3d_data.py
+##### tf_2 conversions (Google Colab command): 
 
-### (5)
-### EDITS
-###
-##### tf_2 conversions: 
-#####
-# !tf_upgrade_v2   --infile  /content/drive/MyDrive/pointnet/original/utils/tf_util.py --outfile  /content/drive/MyDrive/PointNet2_again/tf2/utils/tf_util_NEW.py
-#####
-##### train.py intro:
-#####
-# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# ROOT_DIR = os.path.dirname(BASE_DIR)
-# sys.path.append(BASE_DIR)
-# sys.path.append(ROOT_DIR)
-# sys.path.append(os.path.join(ROOT_DIR, 'utils')) #sys.path.append(os.path.join(ROOT_DIR, 'utils'))
-# sys.path.append(os.path.join(os.path.dirname(ROOT_DIR), 'original'))
-# import provider_og as provider
-# import tf_util
-# from model import *
+tf_upgrade_v2   --infile {path to original tf_util.py} --outfile  {path to new tf_util.py}
+
+##### train.py:
+######## set up first part to look like this:
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.dirname(BASE_DIR)
+sys.path.append(BASE_DIR)
+sys.path.append(ROOT_DIR)
+sys.path.append(os.path.join(ROOT_DIR, 'utils')) #sys.path.append(os.path.join(ROOT_DIR, 'utils'))
+sys.path.append(os.path.join(os.path.dirname(ROOT_DIR), 'original'))
+
+
+import provider_og as provider
+import tf_util
+from model import *
 #
 # Line 65: ALL_FILES = provider.getDataFiles(ROOT_DIR + '/data/indoor3d_sem_seg_hdf5_data/all_files.txt')
 # Line 66: room_filelist = [line.rstrip() for line in open(ROOT_DIR + '/data/indoor3d_sem_seg_hdf5_data/room_filelist.txt')]
