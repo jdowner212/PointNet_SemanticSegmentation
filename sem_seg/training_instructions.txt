@@ -1,0 +1,12 @@
+### (1)
+### DOWNLOAD/PREP STANFORD DATA
+###### (a) Raw Data
+######     - Submit this Google form: https://docs.google.com/forms/d/e/1FAIpQLScDimvNMCGhy_rmBA2gHfDu3naktRm6A8BPwAWWDv-Uhm6Shw/viewform?c=0&w=1
+######     - After downloading, place the unzipped "Stanford3dDataset_v1.2_Aligned_Version" folder within Pointnet_SemanticSegementation/data
+###### (b) hdf5 Files
+######     - Set working directory to Pointnet_SemanticSegementation/data and then run:
+######          wget https://shapenet.cs.stanford.edu/media/indoor3d_sem_seg_hdf5_data.zip --no-check-certificate
+######          unzip indoor3d_sem_seg_hdf5_data.zip
+######          rm indoor3d_sem_seg_hdf5_data.zip
+###### (c) convert to .npy -- this will take around an hour!!!!
+######          python collect_indoor3d_data.py
