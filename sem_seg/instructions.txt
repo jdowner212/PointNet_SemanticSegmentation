@@ -15,3 +15,4 @@
 ### TRAIN
 ######     - Set working directory to Pointnet_SemanticSegementation/data and then run:
 ######          python collect_indoor3d_data.py
+######     - If this gives you issues (I had them in Colab), you can run the code directly -- See TrainFromNotebook.ipynb
