@@ -8,7 +8,7 @@ In this context, semantic segmentation refers to the classification of each poin
 
 ![Semantic segmentation on an IIT pointcloud](https://github.com/jdowner212/PointNet_SemanticSegmentation/blob/main/Large%20GIF%20(464x274).gif)
 
-Our original idea was that we could use this tool to create an inventory of various essential components of campus buildings -- plumbing, HVAC equipment, computers, etc. Theoretically, given the appropriate dataset and labeling scheme, PointNet could be used to identify and label other types of objects.
+Our original idea was that we could use this tool to create an inventory of various essential components of campus buildings -- plumbing, HVAC equipment, computers, etc. Theoretically, given the appropriate dataset and labeling scheme, PointNet could be used to identify and label types of objects other than the 13 listed above.
 
 
 ### Notes before trying it out:
