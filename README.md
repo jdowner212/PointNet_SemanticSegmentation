@@ -20,7 +20,7 @@ Before running, you'll need to download the S3DIS dataset, which requires submit
 View sem_seg/instructions.txt to get started.
 
 
-<!-- 
+
 This repository references two others:
 
 1. The original PointNet repository,
@@ -30,7 +30,8 @@ and
 
 2. A modified version with Tensorflow 2.x compatibility.
 https://github.com/RobinBaumann/pointnet/
- -->
+
 
 [^1] http://stanford.edu/~rqi/pointnet/
+
 [^2] http://buildingparser.stanford.edu/dataset.html
