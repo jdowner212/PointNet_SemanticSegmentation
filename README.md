@@ -1,6 +1,14 @@
 # PointNet_SemanticSegmentation
 The semantic segmentation portion of the original PointNet repository, converted to compatibility with Tensorflow 2.x and with a 'myCloud' class + utility files for preparing data and visualizing results.
 
+
+
+![]https://github.com/jdowner212/PointNet_SemanticSegmentation/blob/main/teaser.gif
+
+
+
+
+
 This repository references two others --
 
 1. The original PointNet repository,
