@@ -3,7 +3,7 @@ The semantic segmentation portion of the original PointNet repository, converted
 
 
 
-![]https://github.com/jdowner212/PointNet_SemanticSegmentation/blob/main/teaser.gif
+![](https://github.com/jdowner212/PointNet_SemanticSegmentation/blob/main/teaser.gif)
 
 
 
