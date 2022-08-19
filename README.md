@@ -20,7 +20,8 @@ Before running, you'll need to download the S3DIS dataset, which requires submit
 View sem_seg/instructions.txt to get started.
 
 
-
+<br>
+<br>
 This repository references two others:
 
 1. The original PointNet repository,
