@@ -4,7 +4,7 @@ I completed this project through the Interprofessional Program (IPRO) at Illinoi
 1. Collecting point cloud scans of IIT campus buildings using SiteScape, a LIDAR-equipped iOS application.
 2. Performing semantic segmentation on resulting data.
 
-In this context, semantic segmentation refers to the classification of each point in the pointcloud input into one of a predetermined set of categories. The model I used is PointNet -- '_a unified architecture for applications ranging from object classification, part segmentation, to scene semantic parsing_'[^1]. The training data we used[^2] provided the following labels: Clutter, Ceiling, Floor, Wall, Beam, Column, Window, Door, Chair, Table, Bookcase, Sofa, Board. By training PointNet on this particular data, we were able to segment our own pointcloud input into these categories.
+In this context, semantic segmentation refers to the classification of each point in the pointcloud input into one of a predetermined set of categories. The model I used is PointNet -- '_a unified architecture for applications ranging from object classification, part segmentation, to scene semantic parsing_'[1]. The training data we used[2] provided the following labels: Clutter, Ceiling, Floor, Wall, Beam, Column, Window, Door, Chair, Table, Bookcase, Sofa, Board. By training PointNet on this particular data, we were able to segment our own pointcloud input into these categories.
 
 ![Semantic segmentation on an IIT pointcloud](https://github.com/jdowner212/PointNet_SemanticSegmentation/blob/main/Large%20GIF%20(464x274).gif)
 
@@ -32,6 +32,6 @@ and
 https://github.com/RobinBaumann/pointnet/
 
 
-[^1] http://stanford.edu/~rqi/pointnet/
+[1] http://stanford.edu/~rqi/pointnet/
 
-[^2] http://buildingparser.stanford.edu/dataset.html
+[2] http://buildingparser.stanford.edu/dataset.html
